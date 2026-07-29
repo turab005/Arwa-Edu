@@ -86,6 +86,16 @@ class QuestionCreate(BaseModel):
     correct_option: str
     difficulty: str
 
+class QuestionUpdate(BaseModel):
+    question_text: Optional[str] = None
+    option_a: Optional[str] = None
+    option_b: Optional[str] = None
+    option_c: Optional[str] = None
+    option_d: Optional[str] = None
+    correct_option: Optional[str] = None
+    difficulty: Optional[str] = None
+
+
 class QuestionResponse(BaseModel):
     id: int
     chapter_id: int

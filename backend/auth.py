@@ -8,8 +8,11 @@ from database import get_db
 import models
 import os
 from typing import Optional
+from dotenv import load_dotenv
 
-SECRET_KEY = os.getenv("SECRET_KEY", "supersecretkey") # Should be loaded from env
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY", "supersecretkey") # It will now load from .env correctly
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 # 1 day
 

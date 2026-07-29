@@ -56,3 +56,28 @@ def create_question(chapter_id: int, question: schemas.QuestionCreate, db: Sessi
 @router.get("/chapters/{chapter_id}/questions", response_model=List[schemas.QuestionResponse])
 def get_questions(chapter_id: int, db: Session = Depends(get_db), current_admin: models.Admin = Depends(auth.get_current_admin)):
     return db.query(models.Question).filter(models.Question.chapter_id == chapter_id).all()
+
+@router.put("/questions/{question_id}", response_model=schemas.QuestionResponse)
+def update_question(question_id: int, question_update: schemas.QuestionUpdate, db: Session = Depends(get_db), current_admin: models.Admin = Depends(auth.get_current_admin)):
+    question = db.query(models.Question).filter(models.Question.id == question_id).first()
+    if not question:
+        raise HTTPException(status_code=404, detail="Question not found")
+        
+    update_data = question_update.model_dump(exclude_unset=True)
+    for key, value in update_data.items():
+        setattr(question, key, value)
+        
+    db.commit()
+    db.refresh(question)
+    return question
+
+@router.delete("/questions/{question_id}")
+def delete_question(question_id: int, db: Session = Depends(get_db), current_admin: models.Admin = Depends(auth.get_current_admin)):
+    question = db.query(models.Question).filter(models.Question.id == question_id).first()
+    if not question:
+        raise HTTPException(status_code=404, detail="Question not found")
+        
+    db.delete(question)
+    db.commit()
+    return {"message": "Question deleted successfully"}
+
