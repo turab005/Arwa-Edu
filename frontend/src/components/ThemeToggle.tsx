@@ -15,9 +15,9 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-sm opacity-50"
+        className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 shadow-sm opacity-50 cursor-default"
         aria-label="Toggle theme placeholder"
-        disabled
+        suppressHydrationWarning
       >
         <div className="w-5 h-5" />
       </button>
