@@ -46,10 +46,10 @@ export default function GuardianLogin() {
   };
 
   return (
-    <div className="glass p-8 rounded-3xl shadow-xl border border-white/20">
+    <div className="glass p-8 rounded-3xl shadow-xl border border-border">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-50 tracking-tight">Welcome Back</h1>
-        <p className="text-sm text-slate-500 mt-2">Log in to your Guardian account</p>
+        <h1 className="text-3xl font-bold text-foreground tracking-tight">Welcome Back</h1>
+        <p className="text-sm text-muted-foreground mt-2">Log in to your Guardian account</p>
       </div>
 
       {error && (
@@ -60,7 +60,7 @@ export default function GuardianLogin() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email Address</label>
+          <label className="block text-sm font-medium text-foreground mb-1">Email Address</label>
           <input
             type="email"
             required
@@ -72,7 +72,7 @@ export default function GuardianLogin() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Password</label>
+          <label className="block text-sm font-medium text-foreground mb-1">Password</label>
           <input
             type="password"
             required
@@ -92,7 +92,7 @@ export default function GuardianLogin() {
         </button>
       </form>
 
-      <div className="mt-8 text-center text-sm text-slate-500">
+      <div className="mt-8 text-center text-sm text-muted-foreground">
         Don't have an account?{" "}
         <Link href="/auth/guardian/register" className="text-primary font-medium hover:underline">
           Register here

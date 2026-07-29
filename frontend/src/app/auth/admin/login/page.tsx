@@ -45,10 +45,10 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="glass p-8 rounded-3xl shadow-xl border border-white/20">
+    <div className="glass p-8 rounded-3xl shadow-xl border border-border">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Admin Portal</h1>
-        <p className="text-sm text-slate-500 mt-2">Log in to manage platform content</p>
+        <h1 className="text-3xl font-bold text-foreground tracking-tight">Admin Portal</h1>
+        <p className="text-sm text-muted-foreground mt-2">Log in to manage platform content</p>
       </div>
 
       {error && (
@@ -59,7 +59,7 @@ export default function AdminLogin() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+          <label className="block text-sm font-medium text-foreground mb-1">Email</label>
           <input
             type="email"
             required
@@ -71,7 +71,7 @@ export default function AdminLogin() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
+          <label className="block text-sm font-medium text-foreground mb-1">Password</label>
           <input
             type="password"
             required
